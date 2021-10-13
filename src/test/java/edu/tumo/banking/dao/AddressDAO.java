@@ -1,4 +1,4 @@
 package edu.tumo.banking.dao;
 
-public class AddressDao {
+public class AddressDAO {
 }
