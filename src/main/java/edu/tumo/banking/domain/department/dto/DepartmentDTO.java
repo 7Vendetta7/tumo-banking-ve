@@ -1,7 +1,7 @@
 package edu.tumo.banking.domain.department.dto;
 
 public class DepartmentDTO {
-    private int departmentID;
+    private long departmentID;
     private int employeeID;
     private int addressID;
     private String departmentName;
@@ -16,7 +16,7 @@ public class DepartmentDTO {
         this.departmentName = departmentName;
     }
 
-    public int getDepartmentID() {
+    public long getDepartmentID() {
         return departmentID;
     }
 
@@ -46,5 +46,20 @@ public class DepartmentDTO {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

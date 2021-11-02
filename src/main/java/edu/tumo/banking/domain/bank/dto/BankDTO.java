@@ -1,7 +1,7 @@
 package edu.tumo.banking.domain.bank.dto;
 
 public class BankDTO {
-    private int bankID;
+    private long bankID;
     private String bankName;
     private String address;
 
@@ -14,7 +14,7 @@ public class BankDTO {
         this.address = address;
     }
 
-    public int getBankID() {
+    public long getBankID() {
         return bankID;
     }
 
@@ -36,5 +36,20 @@ public class BankDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -1,7 +1,7 @@
 package edu.tumo.banking.domain.address.dto;
 
 public class AddressDTO {
-    private int addressID;
+    private long addressID;
     private int bankID;
     private String zipCode;
     private String country;
@@ -26,7 +26,7 @@ public class AddressDTO {
         this.buildingNumber = buildingNumber;
     }
 
-    public int getAddressID() {
+    public long getAddressID() {
         return addressID;
     }
 
@@ -88,5 +88,20 @@ public class AddressDTO {
 
     public void setBuildingNumber(String buildingNumber) {
         this.buildingNumber = buildingNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

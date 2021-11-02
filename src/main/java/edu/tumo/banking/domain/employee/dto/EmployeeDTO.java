@@ -1,7 +1,7 @@
 package edu.tumo.banking.domain.employee.dto;
 
 public class EmployeeDTO {
-    private int employeeID;
+    private long employeeID;
     private int departmentID;
     private int addressID;
     private String firstName;
@@ -25,7 +25,7 @@ public class EmployeeDTO {
         this.employeeStatus = employeeStatus;
     }
 
-    public int getEmployeeID() {
+    public long getEmployeeID() {
         return employeeID;
     }
 
@@ -87,5 +87,20 @@ public class EmployeeDTO {
 
     public void setEmployeeStatus(boolean employeeStatus) {
         this.employeeStatus = employeeStatus;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
