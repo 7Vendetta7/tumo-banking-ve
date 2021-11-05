@@ -1,15 +1,8 @@
 package edu.tumo.banking.domain.address.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class AddressModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long addressID;
+
+    Long addressID;
     private int bankID;
     private String zipCode;
     private String country;
@@ -17,12 +10,11 @@ public class AddressModel {
     private String city;
     private String street;
     private String buildingNumber;
-    private Long id;
 
     public AddressModel() {
     }
 
-    public AddressModel(long addressID, int bankID, String zipCode, String country, String province, String city, String street, String buildingNumber) {
+    public AddressModel(Long addressID, int bankID, String zipCode, String country, String province, String city, String street, String buildingNumber) {
         this.addressID = addressID;
         this.bankID = bankID;
         this.zipCode = zipCode;
@@ -43,10 +35,6 @@ public class AddressModel {
 
     public int getBankID() {
         return bankID;
-    }
-
-    public void setBankID(int bankID) {
-        this.bankID = bankID;
     }
 
     public String getZipCode() {
@@ -95,5 +83,20 @@ public class AddressModel {
 
     public void setBuildingNumber(String buildingNumber) {
         this.buildingNumber = buildingNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

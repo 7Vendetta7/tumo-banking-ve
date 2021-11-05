@@ -1,15 +1,8 @@
 package edu.tumo.banking.domain.employee.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class EmployeeModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long employeeID;
+
+    Long employeeID;
     private int departmentID;
     private int addressID;
     private String firstName;
@@ -21,7 +14,7 @@ public class EmployeeModel {
     public EmployeeModel() {
     }
 
-    public EmployeeModel(int employeeID, int departmentID, int addressID, String firstName,
+    public EmployeeModel(Long employeeID, int departmentID, int addressID, String firstName,
                        String lastName, int age, float salary, boolean employeeStatus) {
         this.employeeID = employeeID;
         this.departmentID = departmentID;
@@ -37,7 +30,7 @@ public class EmployeeModel {
         return employeeID;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(Long employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -97,4 +90,18 @@ public class EmployeeModel {
         this.employeeStatus = employeeStatus;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

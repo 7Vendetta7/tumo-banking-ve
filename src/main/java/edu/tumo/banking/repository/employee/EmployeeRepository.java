@@ -1,17 +1,13 @@
 package edu.tumo.banking.repository.employee;
 
-import edu.tumo.banking.domain.employee.dto.EmployeeDTO;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
 import java.util.Optional;
 
 
-public interface EmployeeRepository extends CrudRepository <EmployeeDTO,Id> {
-    List<EmployeeRepository> findall();
-    EmployeeRepository add(EmployeeRepository employee);
-    Optional<EmployeeRepository> findBy(Id i);
-    void deleteEmployeeRepositoryBy(Id i);
+public interface EmployeeRepository<EmployeeModel,Long> {
+    List<EmployeeModel> findall();
+    EmployeeModel add(EmployeeModel employee);
+    Optional<EmployeeModel> findBy(Long id);
+    void deleteEmployeeModelBy(Long id);
     void deleteAll();
 }

@@ -1,15 +1,8 @@
 package edu.tumo.banking.domain.department.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class DepartmentModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long departmentID;
+
+    Long departmentID;
     private int employeeID;
     private int addressID;
     private String departmentName;
@@ -17,7 +10,7 @@ public class DepartmentModel {
     public DepartmentModel() {
     }
 
-    public DepartmentModel(int departmentID, int employeeID, int addressID, String departmentName) {
+    public DepartmentModel(Long departmentID, int employeeID, int addressID, String departmentName) {
         this.departmentID = departmentID;
         this.employeeID = employeeID;
         this.addressID = addressID;
@@ -28,7 +21,7 @@ public class DepartmentModel {
         return departmentID;
     }
 
-    public void setDepartmentID(int departmentID) {
+    public void setDepartmentID(Long departmentID) {
         this.departmentID = departmentID;
     }
 
@@ -54,5 +47,20 @@ public class DepartmentModel {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

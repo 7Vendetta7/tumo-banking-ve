@@ -1,22 +1,15 @@
 package edu.tumo.banking.domain.bank.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-@Entity
 public class BankModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long bankID;
+    Long bankID;
     private String bankName;
     private String address;
 
     public BankModel() {
     }
 
-    public BankModel(int bankID, String bankName, String address) {
-        this.bankID = bankID;
+    public BankModel(Long bankID, String bankName, String address) {
+        this.bankID=bankID;
         this.bankName = bankName;
         this.address = address;
     }
@@ -25,7 +18,7 @@ public class BankModel {
         return bankID;
     }
 
-    public void setBankID(int bankID) {
+    public void setBankID(Long bankID) {
         this.bankID = bankID;
     }
 
@@ -45,4 +38,18 @@ public class BankModel {
         this.address = address;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
