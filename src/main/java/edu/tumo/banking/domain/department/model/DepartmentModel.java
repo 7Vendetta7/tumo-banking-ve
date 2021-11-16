@@ -3,17 +3,15 @@ package edu.tumo.banking.domain.department.model;
 public class DepartmentModel {
 
     Long departmentID;
-    private int employeeID;
-    private int addressID;
-    private String departmentName;
+    protected int employeeID;
+    protected String departmentName;
 
     public DepartmentModel() {
     }
 
-    public DepartmentModel(Long departmentID, int employeeID, int addressID, String departmentName) {
+    public DepartmentModel(Long departmentID, int employeeID, String departmentName) {
         this.departmentID = departmentID;
         this.employeeID = employeeID;
-        this.addressID = addressID;
         this.departmentName = departmentName;
     }
 
@@ -33,13 +31,6 @@ public class DepartmentModel {
         this.employeeID = employeeID;
     }
 
-    public int getAddressID() {
-        return addressID;
-    }
-
-    public void setAddressID(int addressID) {
-        this.addressID = addressID;
-    }
 
     public String getDepartmentName() {
         return departmentName;

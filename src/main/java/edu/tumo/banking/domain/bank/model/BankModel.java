@@ -1,15 +1,17 @@
 package edu.tumo.banking.domain.bank.model;
 
+
 public class BankModel {
     Long bankID;
-    private String bankName;
-    private String address;
+    protected int employeeID;
+    protected String bankName;
+    protected Long address;
 
     public BankModel() {
     }
 
-    public BankModel(Long bankID, String bankName, String address) {
-        this.bankID=bankID;
+    public BankModel(Long bankID, String bankName, Long address) {
+        this.bankID = bankID;
         this.bankName = bankName;
         this.address = address;
     }
@@ -30,11 +32,11 @@ public class BankModel {
         this.bankName = bankName;
     }
 
-    public String getAddress() {
+    public Long getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Long address) {
         this.address = address;
     }
 

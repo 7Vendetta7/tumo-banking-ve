@@ -3,22 +3,20 @@ package edu.tumo.banking.domain.employee.model;
 public class EmployeeModel {
 
     Long employeeID;
-    private int departmentID;
-    private int addressID;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private float salary;
-    private boolean employeeStatus;
+    protected int departmentID;
+    protected String firstName;
+    protected String lastName;
+    protected int age;
+    protected float salary;
+    protected boolean employeeStatus;
 
     public EmployeeModel() {
     }
 
-    public EmployeeModel(Long employeeID, int departmentID, int addressID, String firstName,
+    public EmployeeModel(Long employeeID, int departmentID, String firstName,
                        String lastName, int age, float salary, boolean employeeStatus) {
         this.employeeID = employeeID;
         this.departmentID = departmentID;
-        this.addressID = addressID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -40,14 +38,6 @@ public class EmployeeModel {
 
     public void setDepartmentID(int departmentID) {
         this.departmentID = departmentID;
-    }
-
-    public int getAddressID() {
-        return addressID;
-    }
-
-    public void setAddressID(int addressID) {
-        this.addressID = addressID;
     }
 
     public String getFirstName() {
