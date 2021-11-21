@@ -9,8 +9,10 @@ public class EmployeeModel {
     protected int age;
     protected float salary;
     protected boolean employeeStatus;
-
     public EmployeeModel() {
+    }
+    public EmployeeModel(Long employeeID) {
+        this.employeeID = employeeID;
     }
 
     public EmployeeModel(Long employeeID, int departmentID, String firstName,
@@ -94,4 +96,5 @@ public class EmployeeModel {
     public String toString() {
         return super.toString();
     }
+
 }

@@ -2,26 +2,35 @@ package edu.tumo.banking.domain.bank.model;
 
 
 public class BankModel {
-    Long bankID;
-    protected int employeeID;
+    protected Long bankID;
+    protected Long employeeID;
     protected String bankName;
     protected Long address;
 
     public BankModel() {
     }
 
-    public BankModel(Long bankID, String bankName, Long address) {
+    public BankModel(Long bankID, Long employeeID, String bankName, Long address) {
         this.bankID = bankID;
+        this.employeeID = employeeID;
         this.bankName = bankName;
         this.address = address;
     }
 
-    public long getBankID() {
+    public Long getBankID() {
         return bankID;
     }
 
     public void setBankID(Long bankID) {
         this.bankID = bankID;
+    }
+
+    public Long getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(Long employeeID) {
+        this.employeeID = employeeID;
     }
 
     public String getBankName() {

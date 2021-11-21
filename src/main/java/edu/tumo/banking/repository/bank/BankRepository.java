@@ -5,8 +5,7 @@ import java.util.Optional;
 
 public interface BankRepository<BankModel, Long>{
     List<BankModel> findall();
-    BankModel add(BankModel bank);
+    BankModel update(BankModel bank);
     Optional<BankModel> findBy(Long id);
-    void deleteBankDTOBy(Long id );
-    void deleteAll();
+    void deleteBankModelBy(Long id );
 }
