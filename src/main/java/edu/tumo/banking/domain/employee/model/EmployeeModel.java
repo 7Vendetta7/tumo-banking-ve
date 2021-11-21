@@ -1,31 +1,24 @@
 package edu.tumo.banking.domain.employee.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class EmployeeModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long employeeID;
-    private int departmentID;
-    private int addressID;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private float salary;
-    private boolean employeeStatus;
 
+    Long employeeID;
+    protected int departmentID;
+    protected String firstName;
+    protected String lastName;
+    protected int age;
+    protected float salary;
+    protected boolean employeeStatus;
     public EmployeeModel() {
     }
+    public EmployeeModel(Long employeeID) {
+        this.employeeID = employeeID;
+    }
 
-    public EmployeeModel(int employeeID, int departmentID, int addressID, String firstName,
+    public EmployeeModel(Long employeeID, int departmentID, String firstName,
                        String lastName, int age, float salary, boolean employeeStatus) {
         this.employeeID = employeeID;
         this.departmentID = departmentID;
-        this.addressID = addressID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -37,7 +30,7 @@ public class EmployeeModel {
         return employeeID;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(Long employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -47,14 +40,6 @@ public class EmployeeModel {
 
     public void setDepartmentID(int departmentID) {
         this.departmentID = departmentID;
-    }
-
-    public int getAddressID() {
-        return addressID;
-    }
-
-    public void setAddressID(int addressID) {
-        this.addressID = addressID;
     }
 
     public String getFirstName() {
@@ -95,6 +80,21 @@ public class EmployeeModel {
 
     public void setEmployeeStatus(boolean employeeStatus) {
         this.employeeStatus = employeeStatus;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 }
