@@ -3,43 +3,32 @@ package edu.tumo.banking.domain.employee.model;
 public class EmployeeModel {
 
     Long employeeID;
-    protected int departmentID;
-    protected String firstName;
-    protected String lastName;
-    protected int age;
-    protected float salary;
-    protected boolean employeeStatus;
+    String firstName;
+    String lastName;
+    Integer age;
+    Float salary;
+    String department;
+    Boolean employeeStatus;
+
     public EmployeeModel() {
     }
-    public EmployeeModel(Long employeeID) {
-        this.employeeID = employeeID;
-    }
 
-    public EmployeeModel(Long employeeID, int departmentID, String firstName,
-                       String lastName, int age, float salary, boolean employeeStatus) {
+    public EmployeeModel(Long employeeID, String firstName, String lastName, Integer age, Float salary, String department, Boolean employeeStatus) {
         this.employeeID = employeeID;
-        this.departmentID = departmentID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.salary = salary;
+        this.department = department;
         this.employeeStatus = employeeStatus;
     }
 
-    public long getEmployeeID() {
+    public Long getEmployeeID() {
         return employeeID;
     }
 
     public void setEmployeeID(Long employeeID) {
         this.employeeID = employeeID;
-    }
-
-    public int getDepartmentID() {
-        return departmentID;
-    }
-
-    public void setDepartmentID(int departmentID) {
-        this.departmentID = departmentID;
     }
 
     public String getFirstName() {
@@ -58,27 +47,35 @@ public class EmployeeModel {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public float getSalary() {
+    public Float getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(Float salary) {
         this.salary = salary;
     }
 
-    public boolean isEmployeeStatus() {
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Boolean getEmployeeStatus() {
         return employeeStatus;
     }
 
-    public void setEmployeeStatus(boolean employeeStatus) {
+    public void setEmployeeStatus(Boolean employeeStatus) {
         this.employeeStatus = employeeStatus;
     }
 
