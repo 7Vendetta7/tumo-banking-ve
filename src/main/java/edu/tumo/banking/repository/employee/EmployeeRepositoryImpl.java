@@ -29,12 +29,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
     @Override
     public void update(EmployeeModel employee) {
         String sql = "insert into employee values(null,?,?,?,?,?,?,?,?)";
-        int status = jdbcTemplate.update(sql, employee.getEmployeeID(),employee.getFirstName(),
-                employee.getLastName(),employee.getAge(),employee.getSalary(),employee.getDepartmentID());
+        int status = jdbcTemplate.update(sql, employee.getEmployeeId(),employee.getFirstName(),
+                employee.getLastName(),employee.getAge(),employee.getSalary());
         if(status != 0){
-            System.out.println("Employee data updated for ID " + employee.getEmployeeID());
+            System.out.println("Employee data updated for ID " + employee.getEmployeeId());
         }else{
-            System.out.println("No Employee found with ID " + employee.getEmployeeID());
+            System.out.println("No Employee found with ID " + employee.getEmployeeId());
         }
 
     }

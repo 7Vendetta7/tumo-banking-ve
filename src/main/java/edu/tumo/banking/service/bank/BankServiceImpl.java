@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class BankServiceImpl {
 
-    private final BankRepository bankRepository;
-
-    public BankServiceImpl(BankRepository bankRepository) {
-        this.bankRepository = bankRepository;
-    }
+//    private final BankRepository bankRepository;
+//
+//    public BankServiceImpl(BankRepository bankRepository) {
+//        this.bankRepository = bankRepository;
+//    }
 }

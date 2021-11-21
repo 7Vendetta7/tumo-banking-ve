@@ -1,34 +1,42 @@
 package edu.tumo.banking.domain.employee.model;
 
+import java.util.Objects;
+
 public class EmployeeModel {
 
-    Long employeeID;
+    Long employeeId;
     String firstName;
     String lastName;
     Integer age;
     Float salary;
+    String address;
     String department;
     Boolean employeeStatus;
+    Long bankId;
 
     public EmployeeModel() {
     }
 
-    public EmployeeModel(Long employeeID, String firstName, String lastName, Integer age, Float salary, String department, Boolean employeeStatus) {
-        this.employeeID = employeeID;
+    public EmployeeModel(Long employeeId, String firstName, String lastName,
+                         Integer age, Float salary, String address, String department,
+                         Boolean employeeStatus, Long bankId) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.salary = salary;
+        this.address = address;
         this.department = department;
         this.employeeStatus = employeeStatus;
+        this.bankId = bankId;
     }
 
-    public Long getEmployeeID() {
-        return employeeID;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeeID(Long employeeID) {
-        this.employeeID = employeeID;
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
@@ -63,6 +71,14 @@ public class EmployeeModel {
         this.salary = salary;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -79,19 +95,39 @@ public class EmployeeModel {
         this.employeeStatus = employeeStatus;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public Long getBankId() {
+        return bankId;
+    }
+
+    public void setBankId(Long bankId) {
+        this.bankId = bankId;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeModel that = (EmployeeModel) o;
+        return Objects.equals(employeeId, that.employeeId) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(age, that.age) && Objects.equals(salary, that.salary) && Objects.equals(address, that.address) && Objects.equals(department, that.department) && Objects.equals(employeeStatus, that.employeeStatus) && Objects.equals(bankId, that.bankId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeId, firstName, lastName, age, salary, address, department, employeeStatus, bankId);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "EmployeeModel{" +
+                "employeeId=" + employeeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", address='" + address + '\'' +
+                ", department='" + department + '\'' +
+                ", employeeStatus=" + employeeStatus +
+                ", bankId=" + bankId +
+                '}';
     }
-
 }

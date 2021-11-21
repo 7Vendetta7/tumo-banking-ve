@@ -1,5 +1,7 @@
 package edu.tumo.banking.domain.user;
 
+import java.util.Objects;
+
 public class UserModel {
 
     Integer userId;
@@ -40,17 +42,24 @@ public class UserModel {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserModel userModel = (UserModel) o;
+        return Objects.equals(userId, userModel.userId) && Objects.equals(username, userModel.username) && Objects.equals(password, userModel.password);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(userId, username, password);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "UserModel{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

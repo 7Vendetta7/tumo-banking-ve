@@ -32,9 +32,9 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
        String sql = "insert into bank values(null,?,?,?,?,?,?,?,?)";
         int status = jdbcTemplate.update(sql, bank.getBankName());
         if(status != 0){
-            System.out.println("Employee data updated for ID " + bank.getEmployeeID());
+            System.out.println("Employee data updated for ID " + bank.getBankID());
         }else{
-            System.out.println("No Employee found with ID " + bank.getEmployeeID());
+            System.out.println("No Employee found with ID " + bank.getBankID());
         }
         return bank;
     }

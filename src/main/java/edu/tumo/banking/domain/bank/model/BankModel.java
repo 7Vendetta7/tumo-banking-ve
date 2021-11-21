@@ -1,6 +1,8 @@
 package edu.tumo.banking.domain.bank.model;
 
 
+import java.util.Objects;
+
 public class BankModel {
     Long bankID;
     String bankName;
@@ -40,17 +42,24 @@ public class BankModel {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankModel bankModel = (BankModel) o;
+        return Objects.equals(bankID, bankModel.bankID) && Objects.equals(bankName, bankModel.bankName) && Objects.equals(address, bankModel.address);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(bankID, bankName, address);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "BankModel{" +
+                "bankID=" + bankID +
+                ", bankName='" + bankName + '\'' +
+                ", address=" + address +
+                '}';
     }
 }
