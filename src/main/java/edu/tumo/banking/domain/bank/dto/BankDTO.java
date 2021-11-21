@@ -1,14 +1,14 @@
 package edu.tumo.banking.domain.bank.dto;
 
 public class BankDTO {
-    private long bankID;
+    private Long bankID;
     private String bankName;
     private String address;
 
     public BankDTO() {
     }
 
-    public BankDTO(int bankID, String bankName, String address) {
+    public BankDTO(Long bankID, String bankName, String address) {
         this.bankID = bankID;
         this.bankName = bankName;
         this.address = address;
@@ -18,7 +18,7 @@ public class BankDTO {
         return bankID;
     }
 
-    public void setBankID(int bankID) {
+    public void setBankID(Long bankID) {
         this.bankID = bankID;
     }
 

@@ -1,18 +1,18 @@
 package edu.tumo.banking.domain.bank.model;
 
 
+import java.util.Objects;
+
 public class BankModel {
-    protected Long bankID;
-    protected Long employeeID;
-    protected String bankName;
-    protected Long address;
+    Long bankID;
+    String bankName;
+    Long address;
 
     public BankModel() {
     }
 
-    public BankModel(Long bankID, Long employeeID, String bankName, Long address) {
+    public BankModel(Long bankID, String bankName, Long address) {
         this.bankID = bankID;
-        this.employeeID = employeeID;
         this.bankName = bankName;
         this.address = address;
     }
@@ -23,14 +23,6 @@ public class BankModel {
 
     public void setBankID(Long bankID) {
         this.bankID = bankID;
-    }
-
-    public Long getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(Long employeeID) {
-        this.employeeID = employeeID;
     }
 
     public String getBankName() {
@@ -50,17 +42,24 @@ public class BankModel {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankModel bankModel = (BankModel) o;
+        return Objects.equals(bankID, bankModel.bankID) && Objects.equals(bankName, bankModel.bankName) && Objects.equals(address, bankModel.address);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(bankID, bankName, address);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "BankModel{" +
+                "bankID=" + bankID +
+                ", bankName='" + bankName + '\'' +
+                ", address=" + address +
+                '}';
     }
 }
