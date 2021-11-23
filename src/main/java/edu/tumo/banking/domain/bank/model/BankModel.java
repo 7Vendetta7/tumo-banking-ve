@@ -1,6 +1,5 @@
 package edu.tumo.banking.domain.bank.model;
 
-
 import java.util.Objects;
 
 public class BankModel {
