@@ -5,12 +5,12 @@ import java.util.Objects;
 public class BankModel {
     Long bankID;
     String bankName;
-    Long address;
+    String address;
 
     public BankModel() {
     }
 
-    public BankModel(Long bankID, String bankName, Long address) {
+    public BankModel(Long bankID, String bankName, String address) {
         this.bankID = bankID;
         this.bankName = bankName;
         this.address = address;
@@ -32,11 +32,11 @@ public class BankModel {
         this.bankName = bankName;
     }
 
-    public Long getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Long address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -58,7 +58,8 @@ public class BankModel {
         return "BankModel{" +
                 "bankID=" + bankID +
                 ", bankName='" + bankName + '\'' +
-                ", address=" + address +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
+
