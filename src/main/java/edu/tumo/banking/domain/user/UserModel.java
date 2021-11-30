@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class UserModel {
 
-    Integer userId;
+    Long userId;
     String username;
     String password;
 
     public UserModel() {
     }
 
-    public UserModel(Integer userId, String userLogin, String password) {
+    public UserModel(Long userId, String username, String password) {
         this.userId = userId;
-        this.username = userLogin;
+        this.username = username;
         this.password = password;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -29,8 +29,8 @@ public class UserModel {
         return username;
     }
 
-    public void setUserLogin(String userLogin) {
-        this.username = userLogin;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
