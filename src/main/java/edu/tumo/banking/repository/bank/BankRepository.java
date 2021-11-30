@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BankRepository<BankModel, Long>{
-    List<BankModel> findall();
+    List<BankModel> findAll();
+    BankModel add(BankModel bankModel);
     BankModel update(BankModel bank);
-    Optional<BankModel> findBy(Long id);
+    Optional<BankModel> findById(Long id);
     void deleteBankModelBy(Long id );
 }

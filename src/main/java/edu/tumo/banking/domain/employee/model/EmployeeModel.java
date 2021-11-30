@@ -3,7 +3,6 @@ package edu.tumo.banking.domain.employee.model;
 import java.util.Objects;
 
 public class EmployeeModel {
-
     Long employeeId;
     String firstName;
     String lastName;
