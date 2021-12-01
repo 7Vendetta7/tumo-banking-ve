@@ -2,7 +2,6 @@ package edu.tumo.banking.service.employee;
 
 
 import edu.tumo.banking.domain.employee.model.EmployeeModel;
-import edu.tumo.banking.repository.employee.EmployeeRepository;
 import edu.tumo.banking.repository.employee.EmployeeRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
