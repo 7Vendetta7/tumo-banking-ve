@@ -26,7 +26,8 @@ public class BankServiceImpl {
     public Optional<BankModel> findBankById(Long id) {return bankRepositoryImpl.findById(id);}
 
     public Optional<BankModel> updateBank(BankModel bank) {
-        return bankRepositoryImpl.update(bank);
+        BankModel bank1= bankRepositoryImpl.update(bank);
+        return Optional.of(bank1);
     }
 
     public void deleteBankById(Long id) {bankRepositoryImpl.deleteBankModelBy(id);}

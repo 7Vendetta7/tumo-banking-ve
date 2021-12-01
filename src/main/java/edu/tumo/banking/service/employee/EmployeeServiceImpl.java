@@ -25,7 +25,10 @@ public class EmployeeServiceImpl {
 
     public Optional<EmployeeModel> findEmployeeById(Long id) {return employeeRepositoryImpl.findById(id);}
 
-    public Optional<EmployeeModel> updateEmployee(EmployeeModel employee) {return employeeRepositoryImpl.update(employee);}
+    public Optional<EmployeeModel> updateEmployee(EmployeeModel employee) {
+        EmployeeModel employee1= employeeRepositoryImpl.update(employee);
+        return Optional.of(employee1);
+    }
 
     public void deleteEmployeeById(Long id) {employeeRepositoryImpl.deleteEmployeeModelById(id);}
 

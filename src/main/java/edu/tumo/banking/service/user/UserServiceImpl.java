@@ -24,7 +24,10 @@ public class UserServiceImpl {
 
     public Optional<UserModel> findUserById(Long id) {return userRepositoryImp.findById(id);}
 
-    public Optional<UserModel> updateUser(UserModel user) {return userRepositoryImp.update(user);}
+    public Optional<UserModel> updateUser(UserModel user) {
+        UserModel user1= userRepositoryImp.update(user);
+        return Optional.of(user1);
+    }
 
     public void deleteUserById(Long id) {userRepositoryImp.deleteUserById(id);}
 
