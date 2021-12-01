@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 import java.util.Optional;
 
-
+@org.springframework.stereotype.Repository
 public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     private final JdbcTemplate jdbcTemplate;
@@ -18,7 +18,6 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
     public BankRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
 
     @Override
     public List<BankModel> findAll() {
@@ -30,7 +29,7 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     @Override
     public BankModel add(BankModel bankModel) {
-        String sql = "insert into bankModel values(null,?,?,?,?,?,?,?,?)";
+        String sql = "insert into bankModel values(null,?,?)";
         int inserted= jdbcTemplate.update(sql, bankModel.getBankID(),bankModel.getBankName(),bankModel.getAddress());
         if (inserted == 1) {
             return bankModel;
@@ -52,7 +51,7 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     @Override
     public Optional<BankModel> findById(Long id) {
-        String sql = "SELECT * FROM bank WHERE ID = ?";
+        String sql = "SELECT * FROM bank WHERE bank_id = ?";
         BankModel bankModel=null;
         try{
             bankModel = jdbcTemplate.queryForObject(sql,new BankRowMapper(), id);

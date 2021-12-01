@@ -1,6 +1,5 @@
 package edu.tumo.banking.repository.employee;
 
-import edu.tumo.banking.domain.bank.model.BankModel;
 import edu.tumo.banking.domain.employee.model.EmployeeModel;
 
 import java.util.List;

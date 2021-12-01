@@ -9,12 +9,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 import java.util.Optional;
 
+@org.springframework.stereotype.Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel, Long> {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private EmployeeRepositoryImpl(JdbcTemplate jdbcTemplate) {
+    public EmployeeRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -27,7 +28,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public EmployeeModel add(EmployeeModel employeeModel) {
-        String sql= "insert into employeeModel values(null,?,?,?,?,?,?,?,?)";
+        String sql= "insert into employee values(null,?,?,?,?,?,?,?,?)";
         int inserted =jdbcTemplate.update(sql,
                 employeeModel.getEmployeeId(),
                 employeeModel.getFirstName(),
@@ -60,7 +61,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public Optional<EmployeeModel> findById(Long id) {
-        String sql = "SELECT * FROM employee WHERE ID = ?";
+        String sql = "SELECT * FROM employee WHERE employee_id= ?";
         EmployeeModel employeeModel =null;
         try {
             employeeModel = jdbcTemplate.queryForObject(sql,
@@ -73,7 +74,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public void deleteEmployeeModelById(Long id) {
-        int status = jdbcTemplate.update("delete from employee where id = ?",id);
+        int status = jdbcTemplate.update("delete from employee where employee_id = ?",id);
         if(status != 0){
             System.out.println("Employee data deleted for ID " + id);
         }else{
