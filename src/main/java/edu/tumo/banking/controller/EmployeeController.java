@@ -1,7 +1,8 @@
 package edu.tumo.banking.controller;
 
-import edu.tumo.banking.domain.bank.model.BankModel;
 import edu.tumo.banking.domain.employee.model.EmployeeModel;
+import edu.tumo.banking.repository.validation.BankValidation;
+import edu.tumo.banking.repository.validation.EmployeeValidation;
 import edu.tumo.banking.service.employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,20 +10,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final EmployeeValidation employeeValidation;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService){
+    public EmployeeController(EmployeeService employeeService,EmployeeValidation employeeValidation){
         this.employeeService = employeeService;
+        this.employeeValidation=employeeValidation;
     }
 
     @PostMapping
     public ResponseEntity<EmployeeModel> addEmployee(@RequestBody EmployeeModel employee){
+        if(!(employeeValidation.validateForNull(employee)))
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(employeeService.add(employee), HttpStatus.CREATED);
     }
 
@@ -34,11 +42,16 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeModel> findEmployeeById(@PathVariable Long id) {
-        return new ResponseEntity<>(employeeService.findById(id), HttpStatus.OK);
+        Optional<EmployeeModel> model=employeeService.findById(id);
+        return new ResponseEntity<>(model.get(), HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<BankModel> updateEmployee(@RequestBody EmployeeModel updatedEmployee){
+    public ResponseEntity<EmployeeModel> updateEmployee(@RequestBody EmployeeModel updatedEmployee){
+        if(!(employeeValidation.validateForNull(updatedEmployee)))
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(employeeService.update(updatedEmployee), HttpStatus.OK);
     }
 
