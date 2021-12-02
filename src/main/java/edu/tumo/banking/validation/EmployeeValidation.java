@@ -1,4 +1,4 @@
-package edu.tumo.banking.repository.validation;
+package edu.tumo.banking.validation;
 
 import edu.tumo.banking.domain.employee.model.EmployeeModel;
 import org.springframework.stereotype.Component;

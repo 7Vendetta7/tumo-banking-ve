@@ -1,8 +1,7 @@
 package edu.tumo.banking.controller;
 
-import edu.tumo.banking.domain.employee.model.EmployeeModel;
 import edu.tumo.banking.domain.user.UserModel;
-import edu.tumo.banking.repository.validation.UserValidation;
+import edu.tumo.banking.validation.UserValidation;
 import edu.tumo.banking.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
