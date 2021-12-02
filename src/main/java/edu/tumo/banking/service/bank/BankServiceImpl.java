@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BankServiceImpl {
+public class BankServiceImpl implements BankService{
 
     private final BankRepositoryImpl bankRepositoryImpl;
 
@@ -32,4 +32,28 @@ public class BankServiceImpl {
 
     public void deleteBankById(Long id) {bankRepositoryImpl.deleteBankModelBy(id);}
 
+    @Override
+    public List<BankModel> findAll() {
+        return null;
+    }
+
+    @Override
+    public BankModel add(BankModel bankModel) {
+        return null;
+    }
+
+    @Override
+    public BankModel update(BankModel bank) {
+        return null;
+    }
+
+    @Override
+    public BankModel findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void deleteBankModelBy(Long id) {
+
+    }
 }
