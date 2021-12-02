@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BankServiceImpl {
+public class BankServiceImpl implements BankService{
 
     private final BankRepositoryImpl bankRepositoryImpl;
 
@@ -19,17 +19,29 @@ public class BankServiceImpl {
         this.bankRepositoryImpl=bankRepositoryImpl;
     }
 
-    public  List<BankModel> findBanks() {return bankRepositoryImpl.findAll();}
-
-    public BankModel addBank(BankModel bank) {return bankRepositoryImpl.add(bank);}
-
-    public Optional<BankModel> findBankById(Long id) {return bankRepositoryImpl.findById(id);}
-
-    public Optional<BankModel> updateBank(BankModel bank) {
-        BankModel bank1= bankRepositoryImpl.update(bank);
-        return Optional.of(bank1);
+    @Override
+    public List<BankModel> findAll() {
+        return bankRepositoryImpl.findAll();
     }
 
-    public void deleteBankById(Long id) {bankRepositoryImpl.deleteBankModelBy(id);}
+    @Override
+    public BankModel add(BankModel bankModel) {
+        return bankRepositoryImpl.add(bankModel);
+    }
 
+    @Override
+    public BankModel update(BankModel bank) {
+        return bankRepositoryImpl.update(bank);
+    }
+
+    @Override
+    public Optional<BankModel> findById(Long id) {
+        Optional<BankModel> bankModel= bankRepositoryImpl.findById(id);
+        return bankModel;
+    }
+
+    @Override
+    public void deleteBankModelBy(Long id) {
+        bankRepositoryImpl.deleteBankModelBy(id);
+    }
 }

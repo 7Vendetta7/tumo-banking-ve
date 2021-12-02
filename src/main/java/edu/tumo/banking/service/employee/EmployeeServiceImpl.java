@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeServiceImpl {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepositoryImpl employeeRepositoryImpl;
 
@@ -19,17 +19,28 @@ public class EmployeeServiceImpl {
         this.employeeRepositoryImpl = employeeRepositoryImpl;
     }
 
-    public List<EmployeeModel> findEmployees() {return employeeRepositoryImpl.findAll();}
-
-    public EmployeeModel addEmployee(EmployeeModel employee) {return employeeRepositoryImpl.add(employee);}
-
-    public Optional<EmployeeModel> findEmployeeById(Long id) {return employeeRepositoryImpl.findById(id);}
-
-    public Optional<EmployeeModel> updateEmployee(EmployeeModel employee) {
-        EmployeeModel employee1= employeeRepositoryImpl.update(employee);
-        return Optional.of(employee1);
+    @Override
+    public List<EmployeeModel> findAll() {
+        return employeeRepositoryImpl.findAll();
     }
 
-    public void deleteEmployeeById(Long id) {employeeRepositoryImpl.deleteEmployeeModelById(id);}
+    @Override
+    public EmployeeModel add(EmployeeModel employeeModel) {
+        return employeeRepositoryImpl.add(employeeModel);
+    }
 
+    @Override
+    public EmployeeModel update(EmployeeModel employeeModel) {
+        return employeeRepositoryImpl.update(employeeModel);
+    }
+
+    @Override
+    public Optional<EmployeeModel> findById(Long id) {
+        return employeeRepositoryImpl.findById(id);
+    }
+
+    @Override
+    public void deleteEmployeeModelById(Long id) {
+        employeeRepositoryImpl.deleteEmployeeModelById(id);
+    }
 }
