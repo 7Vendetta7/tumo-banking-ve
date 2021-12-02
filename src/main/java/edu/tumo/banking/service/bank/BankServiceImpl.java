@@ -19,41 +19,29 @@ public class BankServiceImpl implements BankService{
         this.bankRepositoryImpl=bankRepositoryImpl;
     }
 
-    public  List<BankModel> findBanks() {return bankRepositoryImpl.findAll();}
-
-    public BankModel addBank(BankModel bank) {return bankRepositoryImpl.add(bank);}
-
-    public Optional<BankModel> findBankById(Long id) {return bankRepositoryImpl.findById(id);}
-
-    public Optional<BankModel> updateBank(BankModel bank) {
-        BankModel bank1= bankRepositoryImpl.update(bank);
-        return Optional.of(bank1);
-    }
-
-    public void deleteBankById(Long id) {bankRepositoryImpl.deleteBankModelBy(id);}
-
     @Override
     public List<BankModel> findAll() {
-        return null;
+        return bankRepositoryImpl.findAll();
     }
 
     @Override
     public BankModel add(BankModel bankModel) {
-        return null;
+        return bankRepositoryImpl.add(bankModel);
     }
 
     @Override
     public BankModel update(BankModel bank) {
-        return null;
+        return bankRepositoryImpl.update(bank);
     }
 
     @Override
-    public BankModel findById(Long id) {
-        return null;
+    public Optional<BankModel> findById(Long id) {
+        Optional<BankModel> bankModel= bankRepositoryImpl.findById(id);
+        return bankModel;
     }
 
     @Override
     public void deleteBankModelBy(Long id) {
-
+        bankRepositoryImpl.deleteBankModelBy(id);
     }
 }

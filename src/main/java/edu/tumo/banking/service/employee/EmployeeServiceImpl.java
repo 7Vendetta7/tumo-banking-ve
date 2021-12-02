@@ -19,41 +19,28 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepositoryImpl = employeeRepositoryImpl;
     }
 
-    public List<EmployeeModel> findEmployees() {return employeeRepositoryImpl.findAll();}
-
-    public EmployeeModel addEmployee(EmployeeModel employee) {return employeeRepositoryImpl.add(employee);}
-
-    public Optional<EmployeeModel> findEmployeeById(Long id) {return employeeRepositoryImpl.findById(id);}
-
-    public Optional<EmployeeModel> updateEmployee(EmployeeModel employee) {
-        EmployeeModel employee1= employeeRepositoryImpl.update(employee);
-        return Optional.of(employee1);
-    }
-
-    public void deleteEmployeeById(Long id) {employeeRepositoryImpl.deleteEmployeeModelById(id);}
-
     @Override
     public List<EmployeeModel> findAll() {
-        return null;
+        return employeeRepositoryImpl.findAll();
     }
 
     @Override
     public EmployeeModel add(EmployeeModel employeeModel) {
-        return null;
+        return employeeRepositoryImpl.add(employeeModel);
     }
 
     @Override
     public EmployeeModel update(EmployeeModel employeeModel) {
-        return null;
+        return employeeRepositoryImpl.update(employeeModel);
     }
 
     @Override
-    public EmployeeModel findById(Long id) {
-        return null;
+    public Optional<EmployeeModel> findById(Long id) {
+        return employeeRepositoryImpl.findById(id);
     }
 
     @Override
     public void deleteEmployeeModelById(Long id) {
-
+        employeeRepositoryImpl.deleteEmployeeModelById(id);
     }
 }
