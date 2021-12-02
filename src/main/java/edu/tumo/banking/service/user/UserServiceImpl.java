@@ -18,38 +18,30 @@ public class UserServiceImpl  implements UserService{
         this.userRepositoryImp = userRepositoryImp;
     }
 
-    public List<UserModel> findUsers(){ return userRepositoryImp.findAll();}
-
-    public UserModel addUser(UserModel user){return userRepositoryImp.add(user);}
-
-    public Optional<UserModel> findUserById(Long id) {return userRepositoryImp.findById(id);}
-
-    public Optional<UserModel> updateUser(UserModel user) {
-        UserModel user1= userRepositoryImp.update(user);
-        return Optional.of(user1);
-    }
-
     @Override
     public List<UserModel> findAll() {
-        return null;
+        return userRepositoryImp.findAll();
     }
 
     @Override
     public UserModel add(UserModel userModel) {
-        return null;
+        return userRepositoryImp.add(userModel);
     }
 
     @Override
     public UserModel update(UserModel userModel) {
-        return null;
+        return userRepositoryImp.update(userModel);
     }
 
     @Override
-    public UserModel findById(Long id) {
-        return null;
+    public Optional<UserModel> findById(Long id) {
+        return userRepositoryImp.findById(id);
     }
 
-    public void deleteUserById(Long id) {userRepositoryImp.deleteUserById(id);}
+    public void deleteUserById(Long id)
+    {
+        userRepositoryImp.deleteUserById(id);
+    }
 
 
 }
