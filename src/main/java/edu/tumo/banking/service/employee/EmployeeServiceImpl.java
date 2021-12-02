@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeServiceImpl {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepositoryImpl employeeRepositoryImpl;
 
@@ -32,4 +32,28 @@ public class EmployeeServiceImpl {
 
     public void deleteEmployeeById(Long id) {employeeRepositoryImpl.deleteEmployeeModelById(id);}
 
+    @Override
+    public List<EmployeeModel> findAll() {
+        return null;
+    }
+
+    @Override
+    public EmployeeModel add(EmployeeModel employeeModel) {
+        return null;
+    }
+
+    @Override
+    public EmployeeModel update(EmployeeModel employeeModel) {
+        return null;
+    }
+
+    @Override
+    public EmployeeModel findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void deleteEmployeeModelById(Long id) {
+
+    }
 }

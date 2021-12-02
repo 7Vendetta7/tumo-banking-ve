@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl  implements UserService{
 
     private final UserRepositoryImp userRepositoryImp;
 
@@ -27,6 +27,26 @@ public class UserServiceImpl {
     public Optional<UserModel> updateUser(UserModel user) {
         UserModel user1= userRepositoryImp.update(user);
         return Optional.of(user1);
+    }
+
+    @Override
+    public List<UserModel> findAll() {
+        return null;
+    }
+
+    @Override
+    public UserModel add(UserModel userModel) {
+        return null;
+    }
+
+    @Override
+    public UserModel update(UserModel userModel) {
+        return null;
+    }
+
+    @Override
+    public UserModel findById(Long id) {
+        return null;
     }
 
     public void deleteUserById(Long id) {userRepositoryImp.deleteUserById(id);}
