@@ -1,11 +1,15 @@
 package edu.tumo.banking.validation;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
-import org.springframework.stereotype.Component;
 
-@Component
+
 public class BankValidation {
-    public boolean validateForNull(BankModel bankModel) {
+    public boolean validateBankModel(BankModel bankModel) {
+        if(bankModel==null)
+        {
+            System.out.println(" Bank is null  ");
+            return false;
+        }
         if (bankModel.getBankName() == null) {
             System.out.println("Name of bank is null  ");
             return false;

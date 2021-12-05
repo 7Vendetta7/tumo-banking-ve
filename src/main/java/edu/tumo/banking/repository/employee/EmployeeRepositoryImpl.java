@@ -21,14 +21,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public List<EmployeeModel> findAll() {
-        String sql = "select * from employee";
+        String sql = "SELECT * FROM employee";
         List<EmployeeModel> employees=jdbcTemplate.query(sql, new EmployeeRowMapper());
         return employees;
     }
 
     @Override
     public EmployeeModel add(EmployeeModel employeeModel) {
-        String sql= "insert into employee values(null,?,?,?,?,?,?,?,?)";
+        //bankidi mas@ petqa harcnenq
+        String sql= "INSERT INTO employee('first_name','last_name','age','salary','address','department','employees_status') VALUES(?,?,?,?,?,?,?,?)";
         int inserted =jdbcTemplate.update(sql,
                 employeeModel.getEmployeeId(),
                 employeeModel.getFirstName(),
@@ -47,7 +48,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public EmployeeModel update(EmployeeModel employee) {
-        String sql = "update employee set first_name=?, last_name=?, age=?, salary=?, address=?,department=?,employees_status=?,bank_id=?";
+        String sql = "UPDATE employee SET first_name=?, last_name=?, age=?, salary=?, address=?,department=?,employees_status=?,bank_id=?";
         int status = jdbcTemplate.update(sql, employee.getEmployeeId(),employee.getFirstName(),
                 employee.getLastName(),employee.getAge(),employee.getSalary(),employee.getAddress(),employee.getDepartment(),
                 employee.getEmployeeStatus(),employee.getBankId());
@@ -74,7 +75,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public void deleteEmployeeModelById(Long id) {
-        int status = jdbcTemplate.update("delete from employee where employee_id = ?",id);
+        int status = jdbcTemplate.update("DELETE FROM employee WHERE employee_id = ?",id);
         if(status != 0){
             System.out.println("Employee data deleted for ID " + id);
         }else{

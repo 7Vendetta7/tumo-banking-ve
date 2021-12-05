@@ -21,15 +21,13 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     @Override
     public List<BankModel> findAll() {
-        String sql = "select * from bank";
-        List<BankModel> banks=jdbcTemplate.query(sql, new BankRowMapper());
-        return banks;
-
+        String sql = "SELECT * FROM bank";
+        return jdbcTemplate.query(sql, new BankRowMapper());
     }
 
     @Override
     public BankModel add(BankModel bankModel) {
-        String sql = "insert into bankModel values(null,?,?)";
+        String sql = "INSERT INTO bankModel('bank_name','address') VALUES(?,?)";
         int inserted= jdbcTemplate.update(sql, bankModel.getBankID(),bankModel.getBankName(),bankModel.getAddress());
         if (inserted == 1) {
             return bankModel;
@@ -39,12 +37,12 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     @Override
     public BankModel update(BankModel bank) {
-       String sql = "update bank set bank_name=?, adress=?";
+       String sql = "UPDATE bank SET bank_name=?, adress=?";
         int update = jdbcTemplate.update(sql, bank.getBankName(),bank.getAddress());
         if(update != 0){
-            System.out.println("Employee data updated for id" + bank.getBankID() );
+            System.out.println("Bank data updated for id" + bank.getBankID() );
         }else{
-            System.out.println("No Employee found with id " + bank.getBankID());
+            throw new RuntimeException();
         }
         return bank;
     }
@@ -64,11 +62,12 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
     @Override
     public void deleteBankModelBy (Long id)
     {
-        int status = jdbcTemplate.update("delete from bank where bank_id = ?",id);
+        //Stringov grel
+        int status = jdbcTemplate.update("DELETE FROM bank WHERE bank_id = ?",id);
         if(status != 0){
-            System.out.println("Bank data deleted for ID " + id);
+            System.out.println("Bank data deleted for id " + id);
         }else{
-            System.out.println("No Bank found with ID " + id);
+            System.out.println("No Bank found with id " + id);
         }
     }
 }

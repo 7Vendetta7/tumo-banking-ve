@@ -21,14 +21,14 @@ public class UserRepositoryImp implements UserRepository<UserModel, Long> {
 
     @Override
     public List<UserModel> findAll() {
-        String sql = "select * from user";
+        String sql = "SELECT * FROM user";
         List<UserModel> users=jdbcTemplate.query(sql, new UserRowMapper());
         return users;
     }
 
     @Override
     public UserModel add(UserModel userModel) {
-        String sql = "insert into user values(null,?,?)";
+        String sql = "INSERT INTO user('username','user_password') VALUES(?,?)";
         int inserted= jdbcTemplate.update(sql, userModel.getUserId(),userModel.getUsername(),userModel.getPassword());
         if (inserted == 1) {
             return userModel;
@@ -38,7 +38,7 @@ public class UserRepositoryImp implements UserRepository<UserModel, Long> {
 
     @Override
     public UserModel update(UserModel user) {
-        String sql = "update user set username=?, user_password=? ";
+        String sql = "UPDATE user SET username=?, user_password=? ";
         int update = jdbcTemplate.update(sql,user.getUsername(),user.getPassword());
         if(update != 0){
             System.out.println("Employee data updated for id" + user.getUserId() );
@@ -62,11 +62,11 @@ public class UserRepositoryImp implements UserRepository<UserModel, Long> {
 
     @Override
     public void deleteUserById(Long id) {
-        int status = jdbcTemplate.update("delete from user where user_id= ?",id);
+        int status = jdbcTemplate.update("DELETE FROM user WHERE user_id= ?",id);
         if(status != 0){
-            System.out.println("User deleted for ID " + id);
+            System.out.println("User deleted for id " + id);
         } else {
-            System.out.println("No User found with ID " + id);
+            System.out.println("No User found with id " + id);
         }
     }
 }

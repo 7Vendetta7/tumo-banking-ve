@@ -1,6 +1,7 @@
 package edu.tumo.banking.service.bank;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
+import edu.tumo.banking.repository.bank.BankRepository;
 import edu.tumo.banking.repository.bank.BankRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import java.util.Optional;
 @Service
 public class BankServiceImpl implements BankService{
 
-    private final BankRepositoryImpl bankRepositoryImpl;
+    private final BankRepository bankRepositoryImpl;
 
     @Autowired
 
@@ -35,9 +36,13 @@ public class BankServiceImpl implements BankService{
     }
 
     @Override
-    public Optional<BankModel> findById(Long id) {
+    public BankModel findById(Long id) {
         Optional<BankModel> bankModel= bankRepositoryImpl.findById(id);
-        return bankModel;
+        if(bankModel.isPresent())
+        {
+            return bankModel.get();//controllerum optional chveradardzni
+        }
+        throw new RuntimeException();
     }
 
     @Override
