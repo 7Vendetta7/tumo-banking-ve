@@ -2,7 +2,6 @@ package edu.tumo.banking.service.bank;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
 import edu.tumo.banking.repository.bank.BankRepository;
-import edu.tumo.banking.repository.bank.BankRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,32 +11,32 @@ import java.util.Optional;
 @Service
 public class BankServiceImpl implements BankService{
 
-    private final BankRepository bankRepositoryImpl;
+    private final BankRepository bankRepository;
 
     @Autowired
 
-    public BankServiceImpl(BankRepositoryImpl bankRepositoryImpl){
-        this.bankRepositoryImpl=bankRepositoryImpl;
+    public BankServiceImpl(BankRepository bankRepository){
+        this.bankRepository=bankRepository;
     }
 
     @Override
     public List<BankModel> findAll() {
-        return bankRepositoryImpl.findAll();
+        return bankRepository.findAll();
     }
 
     @Override
     public BankModel add(BankModel bankModel) {
-        return bankRepositoryImpl.add(bankModel);
+        return (BankModel) bankRepository.add(bankModel);
     }
 
     @Override
     public BankModel update(BankModel bank) {
-        return bankRepositoryImpl.update(bank);
+        return (BankModel) bankRepository.update(bank);
     }
 
     @Override
     public BankModel findById(Long id) {
-        Optional<BankModel> bankModel= bankRepositoryImpl.findById(id);
+        Optional<BankModel> bankModel= bankRepository.findById(id);
         if(bankModel.isPresent())
         {
             return bankModel.get();//controllerum optional chveradardzni
@@ -47,6 +46,6 @@ public class BankServiceImpl implements BankService{
 
     @Override
     public void deleteBankModelBy(Long id) {
-        bankRepositoryImpl.deleteBankModelBy(id);
+        bankRepository.deleteBankModelBy(id);
     }
 }
