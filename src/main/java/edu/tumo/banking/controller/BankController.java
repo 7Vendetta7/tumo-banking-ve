@@ -48,6 +48,7 @@ public class BankController {
 
     @PutMapping
     public ResponseEntity<BankModel> updateBank(@RequestBody BankModel updatedBank) {
+
         if(!(bankValidation.validateForNull(updatedBank)))
         {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -41,8 +41,8 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserModel> findUserById(@PathVariable Long id){
-        Optional<UserModel> model=userService.findById(id);
-        return new ResponseEntity<>(model.get(), HttpStatus.OK);
+        UserModel model=userService.findById(id);
+        return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
     @PutMapping

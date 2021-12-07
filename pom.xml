@@ -39,12 +39,10 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
-			<version>2.5.6</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
-			<version>2.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>xerces</groupId>
@@ -59,7 +57,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.sonatype.aether</groupId>

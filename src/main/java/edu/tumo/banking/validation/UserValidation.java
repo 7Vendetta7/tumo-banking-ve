@@ -1,13 +1,20 @@
 package edu.tumo.banking.validation;
 
 import edu.tumo.banking.domain.user.UserModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.LoggerNameAwareMessage;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserValidation {
+
+    private final Logger logger = LogManager.getLogger(UserValidation.class);
+
     public boolean validateForNull(UserModel userModel){
         if(userModel.getUserId() == null){
-            System.out.println("Id of bank is null");
+            logger.warn("Id of bank can't be null");
             return false;
         }
         if(userModel.getUsername() == null){

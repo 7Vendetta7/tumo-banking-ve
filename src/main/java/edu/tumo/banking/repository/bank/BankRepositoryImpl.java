@@ -37,12 +37,12 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
 
     @Override
     public BankModel update(BankModel bank) {
-       String sql = "UPDATE bank SET bank_name=?, adress=?";
-        int update = jdbcTemplate.update(sql, bank.getBankName(),bank.getAddress());
+       String sql = "UPDATE bank SET bank_name=?, adress=? WHERE bank_id=?";
+        int update = jdbcTemplate.update(sql, bank.getBankName(),bank.getAddress(), bank.getBankID());
         if(update != 0){
             System.out.println("Bank data updated for id" + bank.getBankID() );
         }else{
-            throw new RuntimeException();
+            throw new RuntimeException(); // todo remove
         }
         return bank;
     }

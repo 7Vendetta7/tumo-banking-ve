@@ -12,7 +12,7 @@ public class BankRowMapper implements RowMapper<BankModel> {
             BankModel bankModel = new BankModel();
             bankModel.setBankID(rs.getLong("bank_id"));
             bankModel.setBankName(rs.getString("bank_name"));
-            bankModel.setBankName((rs.getString("address")));
+            bankModel.setAddress((rs.getString("address")));
             return bankModel;
     }
 }

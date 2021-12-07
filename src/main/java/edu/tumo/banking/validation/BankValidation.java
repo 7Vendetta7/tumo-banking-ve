@@ -1,8 +1,10 @@
 package edu.tumo.banking.validation;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class BankValidation {
     public boolean validateBankModel(BankModel bankModel) {
         if(bankModel==null)
@@ -23,5 +25,9 @@ public class BankValidation {
             return false;
         }
         return true;
+    }
+
+    public boolean validateForNull(BankModel updatedBank) {
+        return false;
     }
 }

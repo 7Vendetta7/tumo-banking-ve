@@ -1,11 +1,16 @@
 package edu.tumo.banking.domain.user;
 
+import org.springframework.lang.NonNull;
+
 import java.util.Objects;
 
 public class UserModel {
 
     Long userId;
+
+    @NonNull
     String username;
+
     String password;
 
     public UserModel() {
