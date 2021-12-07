@@ -1,15 +1,37 @@
 package edu.tumo.banking.domain.employee.model;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class EmployeeModel {
     Long employeeId;
+
+    @NotEmpty
+    @Size(min=2, message= "Firstname should have at least 2 characters")
     String firstName;
+
+    @NotEmpty
+    @Size(min=2, message= "Firstname should have at least 2 characters")
     String lastName;
+
+    @NotEmpty
     Integer age;
+
+    @NotEmpty
     Float salary;
+
+    @NotEmpty
+    @Size(min = 6 , message = "address should have at least 6 characters")
     String address;
+
+    @NotEmpty
+    @Size(min = 2 , message = "department should have at least 2 characters")
     String department;
+
+    @NotEmpty
+    @AssertTrue
     Boolean employeeStatus;
     Long bankId;
 
