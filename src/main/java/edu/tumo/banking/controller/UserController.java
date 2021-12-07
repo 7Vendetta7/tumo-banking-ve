@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,8 +28,9 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserModel> adduser(@RequestBody UserModel user){
-        if(!(userValidation.validateForNull(user)))
+    //harcnel logger jdbc
+    public ResponseEntity<UserModel> adduser(@Valid @RequestBody UserModel user) throws IOException, SQLException {
+        if(!(userValidation.validateForUser(user)))
         {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -46,8 +50,8 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<UserModel> updateUser(@RequestBody UserModel updatedUser){
-        if(!(userValidation.validateForNull(updatedUser)))
+    public ResponseEntity<UserModel> updateUser(@Valid @RequestBody UserModel updatedUser) throws IOException, SQLException {
+        if(!(userValidation.validateForUser(updatedUser)))
         {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

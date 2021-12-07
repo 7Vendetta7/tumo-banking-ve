@@ -1,10 +1,18 @@
 package edu.tumo.banking.domain.bank.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class BankModel {
     Long bankID;
+
+    @NotEmpty
+    @Size(min = 4, max = 40 , message = "Bank name should have at least 4 and maximum 40 characters" )
     String bankName;
+
+    @NotEmpty
+    @Size(min = 6 , message = "the address should have at least 6 characters")
     String address;
 
     public BankModel() {

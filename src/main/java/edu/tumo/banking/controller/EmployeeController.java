@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeModel> addEmployee(@RequestBody EmployeeModel employee){
+    public ResponseEntity<EmployeeModel> addEmployee(@Valid @RequestBody EmployeeModel employee){
         if(!(employeeValidation.validateForNull(employee)))
         {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -46,7 +47,7 @@ public class EmployeeController {
     }
 
     @PutMapping
-    public ResponseEntity<EmployeeModel> updateEmployee(@RequestBody EmployeeModel updatedEmployee){
+    public ResponseEntity<EmployeeModel> updateEmployee(@Valid @RequestBody EmployeeModel updatedEmployee){
         if(!(employeeValidation.validateForNull(updatedEmployee)))
         {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
