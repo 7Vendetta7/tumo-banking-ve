@@ -1,7 +1,7 @@
 package edu.tumo.banking.service.bank;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
-import edu.tumo.banking.exception.BankNotFoundException;
+import edu.tumo.banking.exception.ResourceNotFound;
 import edu.tumo.banking.repository.bank.BankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class BankServiceImpl implements BankService{
     @Override
     public BankModel findById(Long id) {
         Optional<BankModel> bankModel= bankRepository.findById(id);
-        return bankModel.orElseThrow(BankNotFoundException::new);
+        return bankModel.orElseThrow(ResourceNotFound::new);
 
     }
 

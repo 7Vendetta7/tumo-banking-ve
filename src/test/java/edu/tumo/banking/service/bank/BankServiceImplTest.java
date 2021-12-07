@@ -1,7 +1,7 @@
 package edu.tumo.banking.service.bank;
 
 import edu.tumo.banking.domain.bank.model.BankModel;
-import edu.tumo.banking.exception.BankNotFoundException;
+import edu.tumo.banking.exception.ResourceNotFound;
 import edu.tumo.banking.repository.bank.BankRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,8 +41,7 @@ class BankServiceImplTest {
         Mockito.when(mockBankRepository.findById(2L)).thenReturn(Optional.empty());
 
         BankServiceImpl bankService = new BankServiceImpl(mockBankRepository);
-
-        Exception exception = assertThrows(BankNotFoundException.class, () -> {
+        Exception exception = assertThrows(ResourceNotFound.class, () -> {
             BankModel byId = bankService.findById(2L);
         });
     }
