@@ -18,6 +18,7 @@ public class UserValidation {
     public boolean validateForUser(UserModel userModel) throws IOException,SQLException{
         if(userModel.getUserId() == null){
             logger.warn("Id of bank cannot be null");
+            //todo exception qcel
             return false;
         }
         if(userModel.getUsername() == null){
