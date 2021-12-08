@@ -75,7 +75,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository<EmployeeModel,
 
     @Override
     public void deleteEmployeeModelById(Long id) {
-        int status = jdbcTemplate.update("DELETE FROM employee WHERE employee_id = ?",id);
+        String sql ="DELETE FROM employee WHERE employee_id = ?";
+        int status = jdbcTemplate.update(sql,id);
         if(status != 0){
             System.out.println("Employee data deleted for ID " + id);
         }else{

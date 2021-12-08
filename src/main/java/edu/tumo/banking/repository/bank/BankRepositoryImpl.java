@@ -62,8 +62,8 @@ public class BankRepositoryImpl implements BankRepository<BankModel, Long> {
     @Override
     public void deleteBankModelBy (Long id)
     {
-        //Stringov grel
-        int status = jdbcTemplate.update("DELETE FROM bank WHERE bank_id = ?",id);
+        String sql="DELETE FROM bank WHERE bank_id = ?";
+        int status = jdbcTemplate.update(sql,id);
         if(status != 0){
             System.out.println("Bank data deleted for id " + id);
         }else{

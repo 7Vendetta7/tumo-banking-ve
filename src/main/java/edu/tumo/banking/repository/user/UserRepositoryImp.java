@@ -62,7 +62,8 @@ public class UserRepositoryImp implements UserRepository<UserModel, Long> {
 
     @Override
     public void deleteUserById(Long id) {
-        int status = jdbcTemplate.update("DELETE FROM user WHERE user_id= ?",id);
+        String sql ="DELETE FROM user WHERE user_id= ?";
+        int status = jdbcTemplate.update(sql,id);
         if(status != 0){
             System.out.println("User deleted for id " + id);
         } else {
